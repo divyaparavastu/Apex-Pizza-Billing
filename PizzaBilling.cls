@@ -11,34 +11,30 @@ public class PizzaBillingDemo {
     // Method to calculate and print pizza bills
     public static void calculateBills() {
         
-        // Map of people and the number of pizza slices they ordered
-        Map<String, Integer> myList = new Map<String, Integer>{
-            'Ross' => 3, 
-            'Chandler' => 1, 
-            'Joey' => 4
-        };
+      // Map of people and the number of pizza slices they ordered
+Map<String, Integer> myList = new Map<String, Integer>{'Ross' => 3, 'Chandler' => 1, 'Joey' => 4};
 
-        // Map to store the total bill amount per person
-        Map<String, Integer> myBill = new Map<String, Integer>();
+// Map to store the total bill amount per person
+Map<String, Integer >myBill = new Map<String, Integer>();
 
-        // Calculate Ross's total bill
-        Integer rossSlices = myList.get('Ross');
-        Integer rossRate = rossSlices > 3 ? 6 : (rossSlices >= 2 ? 7 : 8);
-        myBill.put('Ross', rossRate * rossSlices);
+// Calculate Ross's total bill based on slices
+myBill.put('Ross', myList.get('Ross') > 3 ? 6 * myList.get('Ross') 
+           : myList.get('Ross') >= 2 && myList.get('Ross')<= 3 ? 7 * myList.get('Ross') 
+           : 8 * myList.get('Ross'));
 
-        // Calculate Chandler's total bill
-        Integer chandlerSlices = myList.get('Chandler');
-        Integer chandlerRate = chandlerSlices > 3 ? 6 : (chandlerSlices >= 2 ? 7 : 8);
-        myBill.put('Chandler', chandlerRate * chandlerSlices);
+// Calculate Chandler's total bill
+myBill.put('Chandler', myList.get('Chandler') > 3 ? 6 * myList.get('Chandler')
+           : myList.get('Chandler') >= 2 && myList.get('Chandler')<= 3 ? 7 * myList.get('Chandler') 
+           : 8 * myList.get('Chandler'));
 
-        // Calculate Joey's total bill
-        Integer joeySlices = myList.get('Joey');
-        Integer joeyRate = joeySlices > 3 ? 6 : (joeySlices >= 2 ? 7 : 8);
-        myBill.put('Joey', joeyRate * joeySlices);
+// Calculate Joey's total bill
+myBill.put('Joey', myList.get('Joey') > 3 ? 6 * myList.get('Joey') 
+           : myList.get('Joey') >= 2 && myList.get('Joey')<= 3 ? 7 * myList.get('Joey') 
+           : 8 * myList.get('Joey'));    
 
-        // Print the results
-        System.debug('Ross has to pay: $' + myBill.get('Ross'));
-        System.debug('Chandler has to pay: $' + myBill.get('Chandler'));
-        System.debug('Joey has to pay: $' + myBill.get('Joey'));
+// Output each person's total bill
+system.debug('Ross has to pay: '+myBill.get('Ross'));
+system.debug('Chandler has to pay: '+myBill.get('Chandler'));
+system.debug('Joey has to pay: '+myBill.get('Joey'));
     }
 }
